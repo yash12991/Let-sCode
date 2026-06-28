@@ -3,12 +3,12 @@ import { Download, CheckCircle2 } from 'lucide-react';
 import './ResumeTemplates.css';
 
 const templates = [
-  { id: 1, name: 'Classic', category: 'Professional', color: '#ffffff' },
-  { id: 2, name: 'Executive', category: 'Experienced', color: '#00f0ff' },
-  { id: 3, name: 'Clean', category: 'Minimalist', color: '#8a2be2' },
-  { id: 4, name: 'Campus', category: 'Entry Level', color: '#ff3366' },
-  { id: 5, name: 'Harvard', category: 'Academic', color: '#00fa9a' },
-  { id: 6, name: 'Sigma', category: 'Modern', color: '#ff8c00' },
+  { id: 1, name: 'Classic', category: 'Professional', color: '#ffffff', image: '/assets/resumes/classic.png' },
+  { id: 2, name: 'Executive', category: 'Experienced', color: '#00f0ff', image: '/assets/resumes/executive.png' },
+  { id: 3, name: 'Clean', category: 'Minimalist', color: '#8a2be2', image: '/assets/resumes/clean.png' },
+  { id: 4, name: 'Campus', category: 'Entry Level', color: '#ff3366', image: '/assets/resumes/campus.png' },
+  { id: 5, name: 'Harvard', category: 'Academic', color: '#00fa9a', image: '/assets/resumes/harvard.png' },
+  { id: 6, name: 'Sigma', category: 'Modern', color: '#ff8c00', image: '/assets/resumes/sigma.png' },
 ];
 
 const ResumeTemplates = () => {
@@ -24,19 +24,8 @@ const ResumeTemplates = () => {
           {templates.map((template) => (
             <div key={template.id} className="template-card glass-panel">
               <div className="template-preview" style={{'--template-color': template.color}}>
-                <div className="resume-wireframe">
-                  <div className="w-header"></div>
-                  <div className="w-line w-long"></div>
-                  <div className="w-line w-short"></div>
-                  <div className="w-block">
-                    <div className="w-line w-medium"></div>
-                    <div className="w-line w-full"></div>
-                    <div className="w-line w-full"></div>
-                  </div>
-                  <div className="w-block">
-                    <div className="w-line w-medium"></div>
-                    <div className="w-line w-full"></div>
-                  </div>
+                <div className="resume-image-container">
+                  <img src={template.image} alt={`${template.name} Resume Template`} className="resume-preview-img" />
                 </div>
                 <div className="template-overlay">
                   <button className="btn btn-primary btn-sm">
