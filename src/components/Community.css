@@ -1,0 +1,85 @@
+.community-section {
+  padding: 80px 0;
+  background: linear-gradient(to top, rgba(0, 240, 255, 0.03), transparent);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.community-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.community-card:hover {
+  background: color-mix(in srgb, var(--comm-color) 5%, rgba(255,255,255,0.03));
+  border-color: color-mix(in srgb, var(--comm-color) 30%, transparent);
+  transform: translateY(-2px);
+}
+
+.comm-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--comm-color);
+  transition: all 0.3s ease;
+}
+
+.community-card:hover .comm-icon-wrapper {
+  background: color-mix(in srgb, var(--comm-color) 15%, transparent);
+  color: var(--comm-color);
+}
+
+.comm-content {
+  flex-grow: 1;
+}
+
+.comm-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.comm-content p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.btn-join {
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(10px);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.community-card:hover .btn-join {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.btn-join:hover {
+  background: var(--comm-color);
+  border-color: var(--comm-color);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+}

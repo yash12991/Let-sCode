@@ -1,0 +1,196 @@
+.challenge-page {
+  min-height: 100vh;
+  background-color: #0f172a;
+  padding-top: 80px; /* Space for navbar */
+}
+
+.challenge-hero {
+  background-color: #10b981; /* Vibrant green */
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 120px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 50% 100px;
+  border-bottom-right-radius: 50% 100px;
+}
+
+.challenge-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+}
+
+.limited-time-pill {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.challenge-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.challenge-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.challenge-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-pill {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white {
+  background: white;
+  color: #10b981;
+}
+
+.btn-white-outline {
+  background: white;
+  color: #334155;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.tshirt-card {
+  background: white !important;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  margin-top: 60px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.medal-icon {
+  color: #10b981;
+}
+
+.tshirt-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.tshirt-text .small-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.tshirt-text .big-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+
+/* Stats Panel */
+.challenge-stats-section {
+  background-color: #0f172a; /* Match the SVG curve color */
+  padding: 40px 0 80px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #1e293b;
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: -20px; /* Pull it up slightly into the curve space */
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.border-sides {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-icon {
+  color: #10b981;
+  margin-bottom: 16px;
+}
+
+.stat-item h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stat-item p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .challenge-title {
+    font-size: 3rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .border-sides {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+  }
+}
