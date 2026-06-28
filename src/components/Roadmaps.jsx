@@ -19,35 +19,28 @@ const Roadmaps = () => {
           <p className="section-subtitle">Step-by-step learning paths for DSA, System Design, DevOps & ML.</p>
         </div>
 
-        <div className="roadmaps-path-container">
-          <div className="path-line">
-            <div className="path-line-glow"></div>
-          </div>
-          
-          <div className="roadmaps-scroll">
-            {roadmaps.map((map) => {
-              const Icon = map.icon;
-              return (
-                <div key={map.id} className="roadmap-card glass-panel" style={{'--card-color': map.color}}>
-                  <div className="milestone-node" style={{backgroundColor: map.color}}>
-                    <div className="node-glow" style={{backgroundColor: map.color}}></div>
+        <div className="roadmaps-stealth-scroll">
+          {roadmaps.map((map, index) => {
+            const Icon = map.icon;
+            const stepNumber = String(index + 1).padStart(2, '0');
+            return (
+              <div key={map.id} className="roadmap-stealth-card" style={{'--accent-color': map.color}}>
+                <div className="roadmap-watermark">{stepNumber}</div>
+                <div className="roadmap-stealth-inner">
+                  <div className="roadmap-stealth-icon">
+                    <Icon size={24} color={map.color} />
                   </div>
-                  <div className="roadmap-card-inner">
-                    <div className="roadmap-icon" style={{background: `color-mix(in srgb, ${map.color} 15%, transparent)`}}>
-                      <Icon size={28} color={map.color} />
-                    </div>
-                    <div className="roadmap-content">
-                      <h3 className="roadmap-title">{map.title}</h3>
-                      <span className="roadmap-tracks">{map.tracks}</span>
-                    </div>
-                    <div className="roadmap-arrow-btn" style={{'--arrow-color': map.color}}>
-                      <span>→</span>
-                    </div>
+                  <div className="roadmap-stealth-content">
+                    <h3 className="roadmap-stealth-title">{map.title}</h3>
+                    <span className="roadmap-stealth-tracks">{map.tracks}</span>
+                  </div>
+                  <div className="roadmap-stealth-arrow">
+                    <span>→</span>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="companies-section">

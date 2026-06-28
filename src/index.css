@@ -1,15 +1,44 @@
 :root {
-  --bg-color: #0b0f19; /* Deep navy/black from the screenshot */
-  --surface-color: rgba(30, 41, 59, 0.5); /* Slate 800 with opacity */
+  --bg-color: #0b0f19;
+  --surface-color: rgba(30, 41, 59, 0.5);
   --border-color: rgba(255, 255, 255, 0.08);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --brand-teal: #14b8a6; /* The main greenish-teal accent */
-  --brand-blue: #0ea5e9; /* Sky blue for gradients */
+  --brand-teal: #14b8a6;
+  --brand-blue: #0ea5e9;
   --glow-teal: rgba(20, 184, 166, 0.25);
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --mouse-x: 50vw;
   --mouse-y: 50vh;
+  
+  --solid-surface: #1e293b;
+  --inverse-text: #0b0f19;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(11, 15, 25, 0.7);
+  --mouse-glow: rgba(20, 184, 166, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.07);
+  --trail-color: 11, 15, 25;
+}
+
+:root[data-theme='light'] {
+  --bg-color: #f8fafc;
+  --surface-color: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --brand-teal: #0d9488;
+  --brand-blue: #0284c7;
+  --glow-teal: rgba(13, 148, 136, 0.15);
+  
+  --solid-surface: #ffffff;
+  --inverse-text: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --mouse-glow: rgba(13, 148, 136, 0.04);
+  --grid-line: rgba(0, 0, 0, 0.04);
+  --trail-color: 248, 250, 252;
 }
 
 * {
@@ -43,11 +72,34 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 0;
+  z-index: -2;
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
-    rgba(0, 240, 255, 0.07),
+    var(--mouse-glow),
     transparent 40%
+  );
+}
+
+.mouse-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  mask-image: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    transparent 100%
   );
 }
 
@@ -163,14 +215,14 @@ ul {
 
 @keyframes pulse-glow {
   0% {
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    opacity: 0.3;
   }
 
   50% {
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+    opacity: 0.6;
   }
 
   100% {
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    opacity: 0.3;
   }
 }

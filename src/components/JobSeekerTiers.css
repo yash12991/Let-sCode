@@ -28,7 +28,7 @@
 }
 
 .tier-card {
-  background: rgba(30, 41, 59, 0.4);
+  background: var(--surface-color);
   border-radius: 20px;
   padding: 32px;
   position: relative;
@@ -85,12 +85,12 @@
 
 .tier-card h3 {
   font-size: 1.3rem;
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .tier-desc {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 24px;
@@ -113,7 +113,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.85rem;
   margin-bottom: 12px;
 }
@@ -147,13 +147,13 @@
 }
 
 .btn-free { border: 1px solid #22c55e; color: #22c55e; }
-.btn-free:hover { background: #22c55e; color: white; }
+.btn-free:hover { background: #22c55e; color: var(--solid-surface); }
 
 .btn-premium { border: 1px solid #ef4444; color: #ef4444; }
-.btn-premium:hover { background: #ef4444; color: white; }
+.btn-premium:hover { background: #ef4444; color: var(--solid-surface); }
 
 .btn-startup { border: 1px solid #14b8a6; color: #14b8a6; }
-.btn-startup:hover { background: #14b8a6; color: white; }
+.btn-startup:hover { background: #14b8a6; color: var(--solid-surface); }
 
 @media (max-width: 1024px) {
   .tiers-grid {

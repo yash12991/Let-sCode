@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 import logoImage from './asset/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -180,6 +191,9 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-actions desktop-only">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
           <a href="#tools" className="btn ai-tools-btn"><Sparkles size={16} /> AI Tools</a>
           <a href="#login" className="btn btn-outline nav-btn">Sign In</a>
         </div>

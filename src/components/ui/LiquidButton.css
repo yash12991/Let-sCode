@@ -11,12 +11,12 @@
   height: 56px; /* h-14 */
   padding: 0 40px; /* px-10 */
   background: transparent;
-  color: white; /* primary text color */
+  color: var(--text-primary); /* primary text color */
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   outline: none;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* extra pop for text */
+  text-shadow: 0 2px 4px var(--shadow-color); /* extra pop for text */
 }
 
 .liquid-button:hover {
@@ -64,10 +64,13 @@
 
 .liquid-content-layer {
   pointer-events: none;
+  position: relative;
   z-index: 10;
   display: flex;
   align-items: center;
   gap: 8px;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .liquid-filter-svg {

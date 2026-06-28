@@ -33,14 +33,14 @@ export default function NeuralBackground({
         this.y = Math.random() * height;
         this.vx = 0;
         this.vy = 0;
-        this.age = 0;
         this.life = Math.random() * 200 + 100;
+        this.age = Math.random() * this.life; // Randomize initial age so they aren't all invisible at start
       }
 
       update() {
         // Flow Field Math
         const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
-        
+
         this.vx += Math.cos(angle) * 0.2 * speed;
         this.vy += Math.sin(angle) * 0.2 * speed;
 
@@ -107,10 +107,18 @@ export default function NeuralBackground({
       }
     };
 
+    // --- THEME TRACKING ---
+    let currentTrailColor = getComputedStyle(document.documentElement).getPropertyValue('--trail-color').trim() || '5, 5, 5';
+    
+    const themeObserver = new MutationObserver(() => {
+      currentTrailColor = getComputedStyle(document.documentElement).getPropertyValue('--trail-color').trim() || '5, 5, 5';
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
     // --- ANIMATION LOOP ---
     const animate = () => {
       // Background trails
-      ctx.fillStyle = `rgba(5, 5, 5, ${trailOpacity})`; // Adapted to --bg-primary
+      ctx.fillStyle = `rgba(${currentTrailColor}, ${trailOpacity})`;
       ctx.fillRect(0, 0, width, height);
 
       particles.forEach((p) => {
@@ -147,6 +155,7 @@ export default function NeuralBackground({
     document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
+      themeObserver.disconnect();
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
@@ -155,23 +164,38 @@ export default function NeuralBackground({
   }, [color, trailOpacity, particleCount, speed, scale]);
 
   return (
-    <div 
-      ref={containerRef} 
-      className={className} 
-      style={{ 
-        position: 'absolute', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100vh', 
-        zIndex: 0, 
+    <div
+      ref={containerRef}
+      className={className}
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        zIndex: 0,
         overflow: 'hidden',
         pointerEvents: 'none', // Important so it doesn't block clicks on the UI!
         maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
       }}
     >
-      <canvas ref={canvasRef} style={{ display: 'block', width: '100%', height: '100%' }} />
+      <canvas 
+        ref={canvasRef} 
+        style={{ 
+          display: 'block', 
+          width: '100%', 
+          height: '100%',
+          opacity: 0,
+          animation: 'fade-in-canvas 2s ease-out forwards 1s' 
+        }} 
+      />
+      <style>{`
+        @keyframes fade-in-canvas {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 }

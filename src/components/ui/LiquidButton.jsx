@@ -13,10 +13,9 @@ export function LiquidButton({
       onClick={onClick}
       {...props}
     >
-      <div className="liquid-bg-layer" />
       <div
-        className="liquid-glass-layer"
-        style={{ backdropFilter: 'url("#container-glass")' }}
+        className="liquid-bg-layer"
+        style={{ filter: 'url("#container-glass")' }}
       />
       <div className="liquid-content-layer">
         {children}

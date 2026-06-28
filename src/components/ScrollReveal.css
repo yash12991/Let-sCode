@@ -1,13 +1,11 @@
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
-  filter: blur(5px);
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
+  will-change: opacity, transform;
 }
 
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-  filter: blur(0);
 }

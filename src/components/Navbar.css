@@ -155,6 +155,24 @@
   gap: 15px;
 }
 
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-color);
+  color: var(--brand-teal);
+}
+
 .ai-tools-btn {
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-primary);

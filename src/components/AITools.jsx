@@ -18,7 +18,7 @@ const AITools = () => {
     <section id="tools" className="tools-section">
       <div className="container">
         <h2 className="section-title">Prepare Smarter, Get Hired Faster</h2>
-        
+
         <div className="tools-grid">
           {tools.map((tool) => {
             const Icon = tool.icon;
@@ -39,7 +39,7 @@ const AITools = () => {
             );
           })}
         </div>
-        
+
         <div className="tools-cta">
           <a href="#toolkit" className="btn btn-outline btn-lg">
             Open Full AI Toolkit

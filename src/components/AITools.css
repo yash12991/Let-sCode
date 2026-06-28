@@ -37,7 +37,7 @@
 .tool-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: var(--tool-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--tool-color)40;
+  box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px var(--tool-color)40;
 }
 
 .tool-card:hover::before {
@@ -53,7 +53,7 @@
 
 .tool-icon-wrapper {
   padding: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--glass-border);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@
   border-radius: 12px;
   border: 1px solid;
   font-weight: 600;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--surface-color);
 }
 
 .tool-title {

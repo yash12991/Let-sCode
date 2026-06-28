@@ -14,23 +14,24 @@
   border-radius: 50%;
   filter: blur(100px);
   z-index: -1;
-  opacity: 0.4;
+  opacity: 0.6;
   animation: pulse-glow 8s infinite alternate;
+  will-change: transform, opacity;
 }
 
 .shape-1 {
   top: 10%;
   left: 20%;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   background: var(--accent-cyan);
 }
 
 .shape-2 {
   bottom: 20%;
   right: 20%;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   background: var(--accent-purple);
   animation-delay: -4s;
 }
@@ -46,13 +47,22 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 8px 18px;
+  border-radius: 24px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-cyan);
+  color: var(--text-primary);
+  background: rgba(20, 184, 166, 0.05); /* Slight teal tint to glass */
+  border: 1px solid rgba(20, 184, 166, 0.3); /* Crisp teal border */
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.15), inset 0 0 10px rgba(20, 184, 166, 0.05);
   margin-bottom: 24px;
   animation: float 4s ease-in-out infinite;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.badge-icon {
+  color: var(--brand-teal); /* Ensure the icon pops */
 }
 
 .badge-icon {
@@ -91,22 +101,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 56px; /* Matches LiquidButton */
+  height: 56px;
+  /* Matches LiquidButton */
   padding: 0 40px;
-  border-radius: 9999px; /* Match pill shape */
+  border-radius: 9999px;
+  /* Match pill shape */
   font-size: 1rem;
   font-weight: 600;
-  color: white;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   text-decoration: none;
   backdrop-filter: blur(10px);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .hero-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--surface-color);
+  border-color: var(--brand-teal);
   transform: translateY(-2px);
 }
 
@@ -147,19 +161,19 @@
   .hero-title {
     font-size: 3rem;
   }
-  
+
   .hero-cta {
     flex-direction: column;
     width: 100%;
     max-width: 300px;
   }
-  
+
   .hero-stats {
     flex-direction: column;
     gap: 20px;
     border-top: none;
   }
-  
+
   .stat-divider {
     display: none;
   }

@@ -1,6 +1,5 @@
 .footer {
-  background-color: #0b0f19;
-  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-color);
   padding: 60px 0 0;
   margin-top: 60px;
   font-family: var(--font-main);
@@ -8,14 +7,25 @@
   z-index: 10;
 }
 
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent);
+}
+
 /* CTA Banner */
 .footer-cta-banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(30, 41, 59, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, transparent, var(--surface-color) 15%, var(--surface-color) 85%, transparent);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--glass-border) 15%, var(--glass-border) 85%, transparent) 1;
   padding: 24px 32px;
   border-radius: 12px;
   margin-bottom: 60px;
@@ -40,7 +50,7 @@
 .cta-text h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
@@ -51,7 +61,7 @@
 
 .btn-cta {
   background: #4f46e5;
-  color: white;
+  color: var(--inverse-text);
   padding: 12px 24px;
   border-radius: 8px;
   display: inline-flex;
@@ -90,7 +100,7 @@
 
 .logo-icon-box {
   background: #4f46e5;
-  color: white;
+  color: var(--inverse-text);
   width: 32px;
   height: 32px;
   display: flex;
@@ -103,7 +113,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .footer-desc {
@@ -132,8 +142,8 @@
 }
 
 .footer-socials a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--glass-border);
+  color: var(--text-primary);
 }
 
 .newsletter {
@@ -144,14 +154,14 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .newsletter-input-group {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--glass-border);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 4px;
   margin-bottom: 8px;
@@ -163,7 +173,7 @@
   border: none;
   outline: none;
   padding: 8px 12px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.85rem;
 }
 
@@ -173,7 +183,7 @@
 
 .submit-btn {
   background: #4f46e5;
-  color: white;
+  color: var(--inverse-text);
   border: none;
   width: 36px;
   border-radius: 6px;
@@ -190,7 +200,7 @@
 
 .spam-notice {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-secondary);
 }
 
 .contact-info p {
@@ -215,7 +225,7 @@
 .footer-col h4 {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -243,7 +253,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
 }
 
 .footer-popular {
@@ -260,16 +270,16 @@
 }
 
 .footer-popular a {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-secondary);
 }
 
 .footer-popular a:hover {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .footer-copyright {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-secondary);
 }
 
 .heart {

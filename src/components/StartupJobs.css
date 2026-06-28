@@ -8,7 +8,7 @@
   justify-content: space-around;
   padding: 40px;
   margin-bottom: 60px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
+  background: var(--glass-border);
 }
 
 .stat-box {
@@ -43,8 +43,8 @@
 .hub-card:hover {
   border-color: var(--hub-color);
   transform: translateY(-5px);
-  background: rgba(255,255,255,0.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--hub-color)30;
+  background: var(--surface-color);
+  box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px var(--hub-color)30;
 }
 
 .hub-header {
@@ -83,8 +83,8 @@
 }
 
 .remote-card {
-  --hub-color: #fff;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  --hub-color: var(--text-primary);
+  background: var(--glass-border);
 }
 
 @media (max-width: 768px) {

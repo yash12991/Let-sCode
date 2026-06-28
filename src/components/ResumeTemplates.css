@@ -25,8 +25,8 @@
 .template-preview {
   height: 200px;
   background: 
-    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
-    radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    linear-gradient(135deg, var(--glass-border), transparent),
+    radial-gradient(var(--grid-line) 1px, transparent 1px);
   background-size: 100% 100%, 15px 15px;
   display: flex;
   align-items: center;
@@ -38,20 +38,20 @@
 }
 
 .template-preview:hover {
-  background: rgba(255,255,255,0.08);
+  background: var(--glass-border);
 }
 
 .resume-wireframe {
   width: 90px;
   height: 120px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px var(--shadow-color);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -71,13 +71,13 @@
 
 .w-line {
   height: 3px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--border-color);
   border-radius: 2px;
 }
 
 .w-long { width: 100%; }
 .w-short { width: 60%; margin-bottom: 4px; }
-.w-medium { width: 40%; background: rgba(255, 255, 255, 0.4); margin-bottom: 2px; }
+.w-medium { width: 40%; background: var(--text-secondary); margin-bottom: 2px; }
 .w-full { width: 100%; }
 
 .w-block {
