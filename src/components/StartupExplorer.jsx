@@ -51,7 +51,7 @@ const StartupExplorer = () => {
               <span className="b-tag"><Briefcase size={12} /> Remote & Fintech</span>
             </div>
 
-            <button className="btn btn-orange">Get Instant Access <ChevronRight size={16} /></button>
+            <a href="https://topmate.io/letscode/2071103" target="_blank" rel="noopener noreferrer" className="btn btn-orange">Get Instant Access <ChevronRight size={16} /></a>
           </div>
           <div className="bundle-accent">
             <Database size={48} className="mb-4 opacity-90" />

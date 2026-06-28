@@ -118,6 +118,7 @@
   text-align: center;
   color: white;
   padding: 40px;
+  border-radius: 0 20px 20px 0;
 }
 
 .locations-grid {
@@ -132,8 +133,8 @@
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -170,7 +171,7 @@
 }
 
 .loc-icon {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--glass-border);
   width: 48px;
   height: 48px;
   border-radius: 12px;
@@ -182,12 +183,12 @@
 
 .location-card h4 {
   font-size: 1.1rem;
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .location-card p {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.85rem;
   line-height: 1.5;
   margin-bottom: 20px;
@@ -204,15 +205,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: var(--glass-border);
+  color: var(--text-primary);
   padding: 6px;
   border-radius: 40px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .text-span {
@@ -257,6 +258,7 @@
   .bundle-accent {
     width: 100%;
     padding: 30px;
+    border-radius: 0 0 20px 20px;
   }
   .locations-grid {
     grid-template-columns: repeat(2, 1fr);
