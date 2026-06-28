@@ -168,14 +168,14 @@ ul {
 }
 
 .btn-outline {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   color: var(--text-primary);
 }
 
 .btn-outline:hover {
-  background: rgba(30, 41, 59, 0.9);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--glass-border);
+  border-color: var(--border-color);
   transform: translateY(-2px);
 }
 

@@ -77,7 +77,7 @@
   flex-direction: column;
   padding: 8px !important;
   border-radius: 12px;
-  background: rgba(11, 15, 25, 0.98); /* Almost solid to prevent text bleed */
+  background: var(--solid-surface); /* Solid surface for readability */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
@@ -104,7 +104,7 @@
   font-size: 0.9rem;
 }
 .dropdown-content a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-border);
   color: var(--text-primary);
 }
 
@@ -137,7 +137,7 @@
   margin-bottom: 12px;
   padding-left: 16px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border-color);
 }
 .mega-col a {
   display: block;
@@ -174,7 +174,7 @@
 }
 
 .ai-tools-btn {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--glass-border);
   color: var(--text-primary);
   padding: 8px 16px;
   font-size: 0.9rem;
@@ -183,14 +183,14 @@
   align-items: center;
   gap: 8px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .ai-tools-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--surface-color);
+  border-color: var(--border-color);
 }
 
 .ai-tools-btn svg {
