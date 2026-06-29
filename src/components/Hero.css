@@ -81,6 +81,57 @@
   -webkit-text-fill-color: transparent;
 }
 
+.epic-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  height: 1.2em;
+  perspective: 1200px;
+  vertical-align: bottom;
+}
+
+.epic-phrase {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.epic-char {
+  display: inline-block;
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              opacity 1.2s ease, 
+              filter 1.2s ease;
+  transition-delay: var(--delay);
+  will-change: transform, opacity, filter;
+}
+
+/* Incoming from the front (camera) */
+.epic-phrase.next .epic-char {
+  opacity: 0;
+  transform: translateZ(600px) scale(3) translateX(var(--dist)) rotateX(-90deg);
+  filter: blur(20px) brightness(5);
+}
+
+/* Active state (perfectly flat) */
+.epic-phrase.active .epic-char {
+  opacity: 1;
+  transform: translateZ(0) scale(1) translateX(0) rotateX(0deg);
+  filter: blur(0px) brightness(1);
+}
+
+/* Outgoing to the back (sucked into a black hole) */
+.epic-phrase.prev .epic-char {
+  opacity: 0;
+  transform: translateZ(-800px) scale(0.2) translateX(calc(var(--dist) * -2)) rotateX(90deg);
+  filter: blur(15px) brightness(0);
+}
+
 .hero-subtitle {
   font-size: 1.25rem;
   color: var(--text-secondary);

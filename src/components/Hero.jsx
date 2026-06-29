@@ -1,9 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronRight, Zap } from 'lucide-react';
 import { LiquidButton } from './ui/LiquidButton';
 import './Hero.css';
 
+const EpicText = ({ phrases }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 4000); // 4s allows time to admire the epic impact
+    return () => clearInterval(interval);
+  }, [phrases]);
+
+  return (
+    <span className="epic-container">
+      {phrases.map((phrase, pIndex) => {
+        let status = 'next';
+        if (pIndex === index) status = 'active';
+        else if (pIndex === (index - 1 + phrases.length) % phrases.length) status = 'prev';
+
+        return (
+          <span key={pIndex} className={`epic-phrase ${status}`}>
+            {phrase.split('').map((char, cIndex) => {
+               // Calculate distance from center to create spreading effect
+               const center = phrase.length / 2;
+               const dist = cIndex - center;
+               
+               return (
+                 <span 
+                   key={cIndex}
+                   className="epic-char gradient-text"
+                   style={{
+                     '--dist': `${dist * 30}px`,
+                     '--delay': `${Math.abs(dist) * 0.06}s` // Outermost letters arrive later
+                   }}
+                 >
+                   {char === ' ' ? '\u00A0' : char}
+                 </span>
+               );
+            })}
+          </span>
+        );
+      })}
+    </span>
+  );
+};
+
 const Hero = () => {
+  const words = ["Tech Job Faster.", "with Let's Code.", "SDE Roles."];
+
   return (
     <section className="hero">
       <div className="hero-glow shape-1"></div>
@@ -17,7 +63,7 @@ const Hero = () => {
         
         <h1 className="hero-title">
           Crack Your Dream <br />
-          <span className="gradient-text">Tech Job Faster.</span>
+          <EpicText phrases={words} />
         </h1>
         
         <p className="hero-subtitle">
